@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/admin.css') }}">
+    <title>DSA_contractors_home</title>
+</head>
+
+<body></body>
+<div id="topImage1" class="container">
+    <nav id="navMarge" class="fixed-top navbar navbar-light navbar-expand-md navigation-clean-button">
+        <div class="container"><a class="navbar-brand" href="#">Admin</a>
+            <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span
+                    class="visually-hidden"></span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/aboutUs">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/serviceOpt1">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/recentProjects">Recent Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/certifications">Certifications</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact</a>
+                    </li>
+                    {% if 'id' in session%}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Log out</a>
+                    </li>
+                    {% endif %}
+            </div>
+        </div>
+    </nav>
+</div>
+<div class="container vh-100 mt-4">
+    <div class="row">
+        <h3 class="col border border-dark text-center">Website Visits : {{dsainfo.siteVisits}}</h3>
+    </div>
+    <div class="row border border-dark">
+        <a class="col text-center" href="/uorequests"><h3 >Unopened requests: {{unopened | length}}</h3></a>
+    </div>
+    <div class="row border border-dark">
+        <a class="col text-center" href="/orequests"><h3 >Unopened requests: {{opened | length}}</h3></a>
+    </div>
+    {% for x in opened %}
+    <div class="row border border-dark">
+        <div class="col ">
+            <div class="row">
+                <p >Client name:</p> 
+            </div>
+            <div class="row">
+                <p class="text-bold">{{x.clientName}}</p> 
+            </div>
+        </div>
+        <div class="col ">
+            <div class="row">
+                <p>Client Contact info: </p> 
+            </div>
+            <div class="row">
+                <p class="text-bold">email: {{x.email}} , phone: {{x.phone}}</p> 
+            </div>
+        </div>
+        <div class="col ">
+            <div class="row">
+                <p>Client message:</p> 
+            </div>
+            <div class="row">
+                <p class="text-bold">{{x.message}}</p> 
+            </div>
+        </div>
+        <div class="col ">
+            <div class="row">
+                <p>created at:</p> 
+            </div>
+            <div class="row">
+                <p class="text-bold">{{x.created_at}}</p> 
+            </div>
+        </div>
+        <div class="col ">
+            <div class="row">
+                <p>read at:</p> 
+            </div>
+            <div class="row">
+                <p class="text-bold">{{x.updated_at}}</p> 
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <div class="row">
+        <a class="col text-dark border border-dark text-center" href="/admin/{{session['id']}}/edit"><h3 >Admin Edits</h3></a>
+    </div>
+</div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</html>

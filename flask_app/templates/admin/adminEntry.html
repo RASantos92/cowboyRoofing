@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/admin.css') }}">
+    <title>DSA_contractors_home</title>
+</head>
+
+<body>
+    <div id="topImage1" class="container">
+        <nav id="navMarge" class="fixed-top navbar navbar-light navbar-expand-md navigation-clean-button">
+            <div class="container"><a class="navbar-brand" href="#">Admin</a>
+                <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span
+                        class="visually-hidden"></span><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/aboutUs">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/serviceOpt1">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/recentProjects">Recent Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/certifications">Certifications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/view">Admin View</a>
+                        </li>
+                        {% if 'id' in session%}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Log out</a>
+                        </li>
+                        {% endif %}
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container">
+    <div class="row p-3">
+        <form class="col bg-white" action="/adminEntry/process" method="POST" style="border: black 2px solid;">
+            {% with messages = get_flashed_messages(category_filter=["logError"]) %}
+            <!-- declare a variable called messages -->
+            {% if messages %}
+            <!-- check if there are any messages -->
+            {% for message in messages %}
+            <!-- loop through the messages -->
+            <p>{{message}}</p> <!-- display each message in a paragraph tag -->
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <h1>Admin Login</h1>
+            <div class="form-group">
+                <input class="form-control" type="text" name="adminCode" placeholder="adminCode">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="email" placeholder="email">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="password">
+            </div>
+
+            <div class="form-group row">
+                <div class="col-8"></div>
+                <button id="misc" type="submit" class="btn">Submit</button>
+            </div>
+        </form>
+    </div>
+    <div class="row p-3">
+        <form class="col bg-white" action="/adminEntry/register" method="POST" style="border: black 2px solid;">
+            {% with messages = get_flashed_messages(category_filter=["regError"]) %}
+            <!-- declare a variable called messages -->
+            {% if messages %}
+            <!-- check if there are any messages -->
+            {% for message in messages %}
+            <!-- loop through the messages -->
+            <p>{{message}}</p> <!-- display each message in a paragraph tag -->
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <h1>Admin Register</h1>
+            <div class="form-group">
+                <input class="form-control" type="text" name="adminCode" placeholder="adminCode">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="name" placeholder="Your name">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="text" name="email" placeholder="email">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="password">
+            </div>
+            <div class="form-group">
+                <input class="form-control" type="password" name="confirmPassword" placeholder="confirm password">
+            </div>
+            <div class="form-group row">
+                <div class="col-8"></div>
+                <button id="misc" type="submit" class="btn">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</html>

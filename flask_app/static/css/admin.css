@@ -1,0 +1,21 @@
+#topImage{
+    height: 200px;
+}
+#topImage1{
+    height: 50px;
+}
+#navMarge{
+    background-color: rgb(255, 166, 0);
+    border: 1px solid black;
+    opacity: 100%;
+}
+.form-control{
+    background-color: rgb(255,224,133);
+}
+#misc{
+    background-color: rgb(255,224,133);
+}
+#logoResize{
+    height:100px;
+    width: 190px;
+}
