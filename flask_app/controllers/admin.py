@@ -5,8 +5,8 @@ from flask_app.models import admin,clientRequest,recentProjects,buss,certificati
 from werkzeug.utils import secure_filename
 from flask_bcrypt import Bcrypt 
 bcrypt = Bcrypt(app) 
-certUpload = '/home/ubuntu/cowboyRoofing/flask_app/static/img/uploads/certifications'
-deUpload = '/home/ubuntu/cowboyRoofing/flask_app/static/img/uploads/projects'
+certUpload = '/Users/rasbm/OneDrive/Desktop/codingDojo/Python/flask/coyboyRoofing/flask_app/static/img/uploads/certifications'
+deUpload = '/Users/rasbm/OneDrive/Desktop/codingDojo/Python/flask/coyboyRoofing/flask_app/static/img/uploads/projects'
 UPLOAD_FOLDER = deUpload
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
