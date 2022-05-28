@@ -40,6 +40,7 @@ def editProject():
     recentProjects.RecentProject.update(data)
     return redirect(f"/oneProject/{data['id']}")
 
+
 @app.route('/adminEntry/process', methods =['POST'])
 def adminEntryProcess():
     pAdmin = admin.Admin.validate_admin(request.form)
@@ -64,12 +65,6 @@ def adminEntryRegister():
     return redirect('/admin/view')
 
 
-@app.route('/update/services', methods =['POST'])
-def updateServices():
-    if 'id' not in session:
-        return redirect('/')
-    services.Services.update(request.form)
-    return redirect('/admin/view')
 
 @app.route('/markOpen/<int:id>')
 def markOpen(id):
@@ -197,6 +192,46 @@ def addCertification():
     certification.Certification.add(data)
     return redirect('/admin/view')
 
+@app.route('/update/services', methods =['POST'])
+def updateServices():
+    if 'id' not in session:
+        return redirect('/')
+    data = {
+        "serv1" : request.form["serv1"],
+        "serv2" : request.form["serv2"],
+        "serv3" : request.form["serv3"],
+        "serv4" : request.form["serv4"],
+        "serv1info" : request.form["serv1info"],
+        "serv2info" : request.form["serv2info"],
+        "serv3info" : request.form["serv3info"],
+        "serv4info" : request.form["serv4info"],
+        "file1" : "",
+        "file2" : "",
+        "file3" : "",
+        "file4" : "",
+    }
+    count = 1
+    for key,value in request.files.items():
+        print(value.filename)
+        # if 'file0' not in request.files:
+        #     flash('No file part')
+        #     return redirect('admin/1/edit')
+        file = request.files[key]
+        print(value.filename)
+        print(file,"++++++++++++++++++++++++++++")
+        # if user does not select file, browser also
+        # submit an empty part without filename
+        if file.filename == '':
+            flash('No selected file')
+            data[("file" + str(count))] = request.form[("buf"+str(count))]
+            print('line58')
+        if file and allowed_file(file.filename):
+            data[('file'+str(count))] = value.filename
+            filename = secure_filename(file.filename)
+            file.save(f"{app.config['UPLOAD_FOLDER']}\{filename}")
+        count+=1
+    services.Services.update(data)
+    return redirect('/admin/view')
 
 @app.route('/uploadProject', methods = [ 'GET','POST'])
 def upload_file():

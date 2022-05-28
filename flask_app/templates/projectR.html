@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/home.css') }}">
+    <title>Cowboy_Roofing_home</title>
+</head>
+
+
+<style>
+    @media only screen and (min-width: 1024px) {
+        #rPPics {
+        height: 420px;
+        background-size: 570px 420px
+      }
+      #topImage1 {
+        height: 325px;
+        background-size: 1175px 375px;
+        background-repeat: no-repeat;
+        background-image: url({{url_for('static', filename='img/clientView/projectsHeaderLg.png')}});
+      }
+      #mainPhoto{
+            height: 450px
+        }
+        #projectPhoto{
+            height: 355px;
+            width: 425px;
+        }
+        #disLg {
+            display: none;
+        }
+        #htext{
+        height: 150px;
+        }
+        #mainPhoto{
+            height: 450px
+        }
+        #projectPhoto{
+            height: 355px;
+            width: 425px;
+        }
+    
+        #imgResize {
+            height: 375px;
+    
+        }
+        #careImg{
+            height: 350px;
+        }
+        #logoResize{
+            margin-top: 50px;
+            height:135px;
+            width: 190px;
+        }
+        #logoResize1{
+            margin-top: 10px;
+            height:120px;
+            width: 190px;
+        }
+        #fsocial{
+            height: 28px;
+            width: 28px;
+        }
+        #lsocial{
+            height: 32px;
+            width: 32px;
+        }
+        #navMarge{
+            background-color: #88817b;
+            height: 75px;
+        }
+    }
+    body{
+        background-color: black;
+    }
+
+
+
+
+    @media only screen and (max-width: 480px) {
+        #rPPics {
+        height: 300px;
+        background-size: 350px 300px
+      }
+      #projectPhoto{
+            height: 175px;
+            width: 200px;
+        }
+
+        #disSm{
+            display: none;
+        }
+        #careImg{
+            height: 250px;
+            width: 250px;
+        }
+        #htext{
+
+        }
+        #mainPhoto{
+            height: 250px
+        }
+        #logoResize{
+            height:325px;
+            width: 372px;
+        }
+        #logoResize1{
+            margin-top: 10px;
+            height:90px;
+            width: 130px;
+        }
+        #fsocial{
+            height: 28px;
+            width: 28px;
+        }
+        #lsocial{
+            height: 31px;
+            width: 31px;
+        }
+        #marginSm{
+            margin-top: 1px;
+
+        }
+        #navMarge{
+        background-color: #88817b;
+
+    }
+    #workAround{
+        margin-left : 150px;
+        margin-top : 20px;
+        padding-bottom: 0px;
+    }
+    #workAround1{
+        margin-left : 135px;
+        margin-top : 20px;
+        padding-bottom: 0px;
+    }
+    }
+    #carousel_recent_projects {
+  border: 5px dotted whitesmoke;
+}
+    .form-control {
+  background-color: #dca19e;
+}
+#misc {
+  background-color: #8b4e4b;
+}
+
+</style>
+
+
+<body>
+    <span id="disLg">
+        <div id="topImage" class=" ps-0 pe-0"></div>
+    </span>
+    <div id="disSm">
+        <div id="topImage1" class="container ">
+            <nav id="navMarge" class="fixed-top navbar navbar-light navbar-expand-md navigation-clean-button">
+                <div class="container"><a class="navbar-bra nd" href="#"><img id="logoResize"
+                            src="{{ url_for('static', filename='img/clientView/coyboysRoofingLogo.png') }}" alt=""></a>
+                    <div id="disSm" class="col-4"></div>
+                    <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler mb-4"><span
+                            class="visually-hidden"></span><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="navbar-nav me-auto ">
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="/">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="/aboutUs">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="/serviceOpt1">Services</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="/recentProjects">Recent Projects</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="/certifications">Cerifications</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="/contact">Contact</a>
+                            </li>
+                            {% if 'id' in session%}
+                            <li class="nav-item">
+                                <a class="nav-link text-light" href="/logout">Log out</a>
+                            </li>
+                            {% endif %}
+                    </div>
+                </div>
+            </nav>
+            <div id="htext" class="row"></div>
+            <div class="container pt-4 pb-4 ms-0 me-0" style="background-color: aliceblue; opacity: 85%;">
+                <div class="row">
+                    <div class="col ms-0 me-0">
+                        <h4 style="color: #8b4e4b;" class="text-center text-bold">Cowboy Roofing is dedicated to serving
+                            our
+                            clients with the highest level of integrity and professionalism.</h4>
+                    </div>
+                </div>
+                <div id="disSm" class="row">
+                    <div id="disSm" class="col-5"></div>
+                    <div id="disLg" class="col"></div>
+                    <div class="ml-3 col-2">
+                        <div class="row">
+                            <div class="col">
+                                <a href="{{dsainfo.facebook}}"><img id="fsocial"
+                                        src="{{ url_for('static', filename='img/facebook_logo_final.png') }}"
+                                        alt=""></a>
+                            </div>
+                            <div class="col">
+                                <a href="{{dsainfo.linkedin}}"><img id="lsocial"
+                                        src="{{ url_for('static', filename='img/linkedin_logo_final.png') }}"
+                                        alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="disLg" class="col"></div>
+                    <div id="disSm" class="col-5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- navagation for phone -->
+    <div id="disLg">
+        <nav id="navMarge" class=" navbar navbar-light navbar-expand-md navigation-clean-button">
+            <div class="container">
+                <div class="row" id="disLg">
+                    <a class="navbar-bra nd pl-2" href="#"><img id="logoResize"
+                            src="{{ url_for('static', filename='img/clientView/coyboysRoofingLogo.png') }}" alt=""></a>
+                </div>
+                <div class="row" id="disLg">
+                    <div class="col " id="workAround1">
+
+
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="col d-flex">
+                                    <a href="{{dsainfo.facebook}}"><img id="fsocial"
+                                            src="{{ url_for('static', filename='img/facebook_logo_final.png') }}"
+                                            alt=""></a>
+                                    <a href="{{dsainfo.linkedin}}"><img id="lsocial"
+                                            src="{{ url_for('static', filename='img/linkedin_logo_final.png') }}"
+                                            alt=""></a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="disLg">
+                    <div class="col " id="workAround">
+                        <button data-toggle="collapse" data-target="#navcol-2" class="navbar-toggler ">
+                            <span class="visually-hidden"></span>
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse" id="navcol-2">
+                    <ul class="navbar-nav me-auto ">
+                        <li class="nav-item">
+                            <a class="nav-link text-light text-center" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light text-center" href="/aboutUs">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light text-center" href="/serviceOpt1">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light text-center" href="/recentProjects">Recent Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light text-center" href="/certifications">Cerifications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light text-center" href="/contact">Contact</a>
+                        </li>
+                        {% if 'id' in session%}
+                        <li class="nav-item">
+                            <a class="nav-link text-light text-center" href="/logout">Log out</a>
+                        </li>
+                        {% endif %}
+                </div>
+            </div>
+        </nav>
+    </div>
+    </div>
+    <!-- top image and text desktop-->
+    <span class="container" id="disSm">
+
+
+
+
+
+
+    </span>
+
+
+
+
+
+
+    <!-- phone view -->
+    <div id="disLg">
+
+        <div id="htext" class="row"></div>
+        <div id="marginSm" class="container pt-4 pb-4" style="background-color: aliceblue; opacity: 85%;">
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-10">
+                    <h2 style="color:#8b4e4b" class="pt-0 text-center font-weight-bold mr-1">{{project.location}}</h2>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </div>
+    <div id="disSm">
+        <div id="marginSm" class="container pt-4 pb-4" >
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-10">
+                    <h2 style="color:#8b4e4b" class="pt-0 text-center font-weight-bold mr-1"><u>{{project.location}}</u></h2>
+                </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <h2 class="col text-center text-white">{{project.description}}</h2>
+        </div>
+        {% if 'id' in session %} <div class="row">{{project.mainPhoto}}</div>{% endif %}
+        <div class="row mb-3">
+            <img id="mainPhoto" class="col"
+                src="{{ url_for('static', filename='img/uploads/projects/'+project.mainPhoto+'') }}" alt="">
+        </div>
+
+
+        <div class="row">
+        {% for photo in project.photos %}
+        <div class="col-6">
+                {% if 'id' in session %} <div class="row">{{photo}}</div>{% endif %}
+                {% if 'id' not in session %}<div class="row"></div>{% endif %}
+                <div class="row ">
+
+            <img id="projectPhoto" class="col" src="{{ url_for('static', filename='img/uploads/projects/'+photo+'') }}"
+                alt="">
+
+            </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row mt-2 mb-2">
+            <div class="col-2"></div>
+            <a class="col btn text-light" style="background-color: #8b4e4b;" href="/contact">Click here to get in contact</a>
+            <div class="col-2"></div>
+        </div>
+    </div>
+    </div>
+    {% if 'id' in session %}
+    <div class="container">
+    <form class="col bg-white mt-2 mb-2" action="/editProject" method="POST" enctype="multipart/form-data"
+        style="border: black 2px solid;">
+        <input type="hidden" name="id" value="{{project.id}}">
+        <input type="hidden" name="oldMain" value="{{project.mainPhoto}}">
+        <input type="hidden" name="allPhotos" value="{{project.allPhotosStr}}">
+        <h1>edit Project</h1>
+        <div class="form-group">
+            <input class="form-control" type="text" name="location" value="{{project.location}}">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" name="description" value="{{project.description}}">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" name="cost" value="{{project.tCost}}">
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="text" name="mainPhoto" value="{{project.mainPhoto}}">
+        </div>
+        <div class="form-group row">
+            <div class="col-8"></div>
+            <button id="misc" type="submit" class="btn">Submit</button>
+        </div>
+        <a clas="btn btn-danger"href="/delete/{{project.id}}">DELETE THIS PROJECT</a>
+        </div>
+    </form>
+</div>
+    {% endif %}
+    <div class="container bg-dark ">
+        <img id="logoResize1" src="{{ url_for('static', filename='img/clientView/coyboysRoofingLogo.png') }}" alt="">
+        <p style="color: whitesmoke;">Cowboys Roofing LLC, DSA contractors,RS Ark LLC</p>
+        <p4 style="color: whitesmoke;">©RSarkLLC</p4>
+        </div<div id="htext" class="row">
+    </div>
+
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</html>

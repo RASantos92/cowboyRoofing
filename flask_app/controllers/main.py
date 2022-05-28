@@ -29,11 +29,11 @@ def home():
 
 @app.route('/aboutUs')
 def aboutUs():
-    return render_template('aboutUs.html',dsainfo = DSAinfo.getInfo())
+    return render_template('aboutUsR.html',dsainfo = DSAinfo.getInfo())
 
 @app.route('/contact')
 def contact():
-    return render_template('contact.html',dsainfo = DSAinfo.getInfo())
+    return render_template('contactR.html',dsainfo = DSAinfo.getInfo())
 
 @app.route('/processRequest',methods=['POST'])
 def processRequest():
@@ -46,11 +46,11 @@ def processRequest():
 @app.route('/recentProjects')
 def recentProjects():
     print(RecentProject.getAll())
-    return render_template('recentProjects.html',projects = RecentProject.getAll(),dsainfo = DSAinfo.getInfo())
+    return render_template('recentProjectsR.html',projects = RecentProject.getAll(),dsainfo = DSAinfo.getInfo())
 
 @app.route('/oneProject/<int:id>')
 def oneProject(id):
-    return render_template('project.html', project = RecentProject.get_one({'id':id}),dsainfo = DSAinfo.getInfo())
+    return render_template('projectR.html', project = RecentProject.get_one({'id':id}),dsainfo = DSAinfo.getInfo())
 
 @app.route('/serviceOpt1')
 def serviceOpt1():
@@ -59,11 +59,11 @@ def serviceOpt1():
     serv2info = services.serv2info.split("|")
     serv3info = services.serv3info.split("|")
     serv4info = services.serv4info.split("|")
-    return render_template('serviceOpt1.html',serv1info = serv1info,serv2info = serv2info,serv3info = serv3info,serv4info=serv4info,dsainfo = DSAinfo.getInfo(), services = services)
+    return render_template('services.html',serv1info = serv1info,serv2info = serv2info,serv3info = serv3info,serv4info=serv4info,dsainfo = DSAinfo.getInfo(), services = services)
 
 @app.route('/certifications')
 def resorces():
-    return render_template('resorces.html',certifications = Certification.getAll(),dsainfo = DSAinfo.getInfo())
+    return render_template('resorcesR.html',certifications = Certification.getAll(),dsainfo = DSAinfo.getInfo())
 
 # @app.route('/uploader', methods = [ 'GET','POST'])
 # def upload_file_test():
