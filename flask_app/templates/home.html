@@ -10,7 +10,6 @@
     <title>Cowboy_Roofing_home</title>
 </head>
 
-
 <style>
     @media only screen and (min-width: 1024px) {
         #topImage {
@@ -64,11 +63,7 @@
 
 
     @media only screen and (max-width: 480px) {
-        a{
-            padding-top: 0px;
-            padding-bottom: 0px;
-            margin-left: 0px;
-        }
+
         #disSm{
             display: none;
         }
@@ -130,9 +125,10 @@
 </style>
 
 
+
 <body>
     <span id="disLg">
-        <div id="topImage" class=" ps-0 pe-0">
+        <div id="topImage" class=" ps-0 pe-0"></div>
     </span>
     <div id="disSm">
         <div id="topImage" class="container">
@@ -151,42 +147,42 @@
                                 src="{{ url_for('static', filename='img/clientView/coyboysRoofingLogo.png') }}"
                                 alt=""></a>
                     </div>
+                
 
-
-                    <div id="disSm" class="col-4"></div>
-                    <!-- <div class="row" id="disLg"> -->
-                    <!-- <div class="col" id="workAround"> -->
-                    <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler "><span
-                            class="visually-hidden"></span><span class="navbar-toggler-icon"></span></button>
+                <div id="disSm" class="col-4"></div>
+                <!-- <div class="row" id="disLg"> -->
+                <!-- <div class="col" id="workAround"> -->
+                <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler "><span
+                        class="visually-hidden"></span><span class="navbar-toggler-icon"></span></button>
+                <!-- </div> -->
+                <div class="collapse navbar-collapse" id="navcol-1">
                     <!-- </div> -->
-                    <div class="collapse navbar-collapse" id="navcol-1">
-                        <!-- </div> -->
-                        <ul class="navbar-nav  ">
-                            <li class="nav-item">
-                                <a class="nav-link text-light text-center" href="/">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light text-center" href="/aboutUs">About</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light text-center" href="/serviceOpt1">Services</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light text-center" href="/recentProjects">Recent Projects</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light text-center" href="/certifications">Cerifications</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-light text-center" href="/contact">Contact</a>
-                            </li>
-                            {% if 'id' in session%}
-                            <li class="nav-item">
-                                <a class="nav-link text-light text-center" href="/logout">Log out</a>
-                            </li>
-                            {% endif %}
-                    </div>
+                    <ul class="navbar-nav  ">
+                        <li class="nav-item">
+                            <a class="nav-link text-light text-center" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light text-center" href="/aboutUs">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light text-center" href="/serviceOpt1">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light text-center" href="/recentProjects">Recent Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light text-center" href="/certifications">Cerifications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light text-center" href="/contact">Contact</a>
+                        </li>
+                        {% if 'id' in session%}
+                        <li class="nav-item">
+                            <a class="nav-link text-light text-center" href="/logout">Log out</a>
+                        </li>
+                        {% endif %}
                 </div>
+            </div>
             </nav>
             <div id="htext" class="row"></div>
             <div class="container pt-4 pb-4 ms-0 me-0" style="background-color: aliceblue; opacity: 85%;">
@@ -296,37 +292,37 @@
 
             </div>
 
-            <div class="row d-flex justify-content-between">
-                <div class="col  mb-4"
-                    style="height: 375px; background-size: contain; background-repeat: no-repeat; background-image: url({{url_for('static', filename='img/uploads/projects/'+services.serv1photo+'')}});">
-                    <h1 class="text-white"
-                        style="background-image: linear-gradient(to bottom,rgba(0,0,0,1), rgba(255,0,0,0));">
-                        {{services.serv1}}</h1>
-                </div>
-                <div class="col-1"></div>
-                <div class="col mb-4 pr-0"
-                    style="height: 375px; width: 252px; margin-left: 10px; background-size: contain; background-repeat: no-repeat; background-image: url({{url_for('static', filename='img/uploads/projects/'+services.serv2photo+'')}});">
-                    <h1 class="text-white"
-                        style="background-image: linear-gradient(to bottom,rgba(0,0,0,1), rgba(255,0,0,0));">
-                        {{services.serv2}}</h1>
-                </div>
-            </div>
-            <div class="d-flex justify-content-between row">
-                <div class="col mt-4  mb-3"
-                    style="height: 375px; width: 252px; background-size: contain; background-repeat: no-repeat; background-image: url({{url_for('static', filename='img/uploads/projects/'+services.serv3photo+'')}});">
-                    <h1 class="text-white"
-                        style="background-image: linear-gradient(to bottom,rgba(0,0,0,1), rgba(255,0,0,0));">
-                        {{services.serv3}}</h1>
+                    <div class="row d-flex justify-content-between">
+                        <div class="col  mb-4"
+                            style="height: 375px; background-size: contain; background-repeat: no-repeat; background-image: url({{url_for('static', filename='img/uploads/projects/'+services.serv1photo+'')}});">
+                            <h1 class="text-white"
+                                style="background-image: linear-gradient(to bottom,rgba(0,0,0,1), rgba(255,0,0,0));">
+                                {{services.serv1}}</h1>
+                        </div>
+                        <div class="col-1"></div>
+                        <div class="col mb-4 pr-0"
+                            style="height: 375px; width: 252px; margin-left: 10px; background-size: contain; background-repeat: no-repeat; background-image: url({{url_for('static', filename='img/uploads/projects/'+services.serv2photo+'')}});">
+                            <h1 class="text-white"
+                                style="background-image: linear-gradient(to bottom,rgba(0,0,0,1), rgba(255,0,0,0));">
+                                {{services.serv2}}</h1>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-between row">
+                        <div class="col mt-4  mb-3"
+                            style="height: 375px; width: 252px; background-size: contain; background-repeat: no-repeat; background-image: url({{url_for('static', filename='img/uploads/projects/'+services.serv3photo+'')}});">
+                            <h1 class="text-white"
+                                style="background-image: linear-gradient(to bottom,rgba(0,0,0,1), rgba(255,0,0,0));">
+                                {{services.serv3}}</h1>
 
-                </div>
-                <div class="col-1"></div>
-                <div class="col mt-4 pr-0 mb-3"
-                    style="height: 375px; width: 252px; margin-left: 10px; background-size: contain; background-repeat: no-repeat; background-image: url({{url_for('static', filename='img/uploads/projects/'+services.serv4photo+'')}});">
-                    <h1 class="text-white"
-                        style="background-image: linear-gradient(to bottom,rgba(0,0,0,1), rgba(255,0,0,0));">
-                        {{services.serv4}}</h1>
-                </div>
-            </div>
+                        </div>
+                        <div class="col-1"></div>
+                        <div class="col mt-4 pr-0 mb-3"
+                        style="height: 375px; width: 252px; margin-left: 10px; background-size: contain; background-repeat: no-repeat; background-image: url({{url_for('static', filename='img/uploads/projects/'+services.serv4photo+'')}});">
+                        <h1 class="text-white"
+                            style="background-image: linear-gradient(to bottom,rgba(0,0,0,1), rgba(255,0,0,0));">
+                            {{services.serv4}}</h1>
+                    </div>
+                    </div>
 
 
         </div>
@@ -352,7 +348,7 @@
                             commercial
                             property is vital to its entire structure. Cowboys Roofing, LLC provides a professional team
                             of
-                            roofers to ensure that the roof of your business enterprise in the DFW area remains airtight and is
+                            roofers to ensure that the roof of your business enterprise in Plano remains airtight and is
                             protected from extreme weather conditions and other structural problems.
                         </p>
                     </div>
@@ -497,11 +493,10 @@
     <span id="disLg">
         <div class="container">
             <div class="row">
-                <img src="{{ url_for('static', filename='img/clientView/home_page_toper.jpg') }}" alt=""
-                    class="img-fluid">
-            </div>
+            <img src="{{ url_for('static', filename='img/clientView/home_page_toper.jpg') }}" alt="" class="img-fluid">
         </div>
-
+        </div>
+        
 
         <div id="htext" class="row"></div>
         <div id="marginSm" class="container pt-4 pb-4" style="background-color: aliceblue; opacity: 85%;">
@@ -532,7 +527,7 @@
                 <div class="col-4"></div>
 
             </div>
-            <a href="/serviceOpt1" class="row pl-4 pr-4">
+            <a href="/serviceOpt1"class="row pl-4 pr-4"> 
                 <div class="col"
                     style="height: 325px; width: 252px; background-size: contain; background-repeat: no-repeat; background-image: url({{url_for('static', filename='img/uploads/projects/'+services.serv1photo+'')}});">
                     <h1 class="text-white"
@@ -541,7 +536,7 @@
 
                 </div>
             </a>
-            <a href="/serviceOpt1" class="row pl-4 pr-4">
+            <a href="/serviceOpt1"class="row pl-4 pr-4">
                 <div class="col"
                     style="height: 325px; width: 252px; background-size: contain; background-repeat: no-repeat; background-image: url({{url_for('static', filename='img/uploads/projects/'+services.serv2photo+'')}});">
                     <h1 class="text-white"
@@ -550,7 +545,7 @@
 
                 </div>
             </a>
-            <a href="/serviceOpt1" class="row pl-4 pr-4">
+            <a href="/serviceOpt1"class="row pl-4 pr-4">
                 <div class="col"
                     style="height: 325px; width: 252px; background-size: contain; background-repeat: no-repeat; background-image: url({{url_for('static', filename='img/uploads/projects/'+services.serv3photo+'')}});">
                     <h1 class="text-white"
@@ -559,7 +554,7 @@
 
                 </div>
             </a>
-            <a href="/serviceOpt1" class="row pl-4 pr-4">
+            <a href="/serviceOpt1"class="row pl-4 pr-4">
                 <div class="col"
                     style="height: 325px; width: 252px; background-size: contain; background-repeat: no-repeat; background-image: url({{url_for('static', filename='img/uploads/projects/'+services.serv4photo+'')}});">
                     <h1 class="text-white"
@@ -594,7 +589,7 @@
                             commercial
                             property is vital to its entire structure. Cowboys Roofing, LLC provides a professional team
                             of
-                            roofers to ensure that the roof of your business enterprise in the DFW area remains airtight and is
+                            roofers to ensure that the roof of your business enterprise in Plano remains airtight and is
                             protected from extreme weather conditions and other structural problems.
                         </p>
                     </div>
